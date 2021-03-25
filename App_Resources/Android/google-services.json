@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "534031790647",
+    "project_id": "ccbc-mobile-app",
+    "storage_bucket": "ccbc-mobile-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534031790647:android:f2c7d7393ef08e255745b2",
+        "android_client_info": {
+          "package_name": "org.ccbc.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534031790647-d7rdqtti52r1accaq43qk3gf9r19a75j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqgoJKX9n3L_PXxcPLF479WGesWfkbPTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "534031790647-d7rdqtti52r1accaq43qk3gf9r19a75j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

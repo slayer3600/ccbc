@@ -1,0 +1,61 @@
+@import "~@nativescript/theme/css/core.css";
+@import "~@nativescript/theme/css/default.css";
+
+.actionBar {
+  background-color: #1ecabb;
+  color: #ffffff;
+}
+
+.coverImage {
+  background-image: url('~/assets/images/ccbc-building.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.titlePageText {
+  font-size: 20;
+  color: white;
+}
+
+.titleVideoText {
+  font-size: 20;
+  color: white;
+  font-weight: bold;
+}
+
+.myButton {
+  android-elevation: 4;
+  background-color: #1ecabb;
+  border-color: black;
+  border-radius: 8;
+  border-width: 1;
+  color: white;
+  font-size: 18;
+  font-weight: bold;
+}
+
+.myPaginationButton {
+  background-color: #1ecabb;
+  border-color: black;
+  border-radius: 8;
+  border-width: 1;
+  color: black;
+  font-size: 12;
+  font-weight: bold;
+}
+
+.fa {
+  font-family: "Font Awesome 5 Pro", "fa-regular-400";
+  font-weight: 400;
+}
+
+.fas {
+  font-family: "Font Awesome 5 Pro", "fa-solid-900";
+  font-weight: 900;
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands", "fa-brands-400";
+  font-weight: 400;
+}
