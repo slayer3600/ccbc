@@ -43,7 +43,7 @@
     <ListView for="item in videoList.items" @itemTap="onItemTap">
       <v-template>
         <GridLayout columns="1/3*, 2/3*">
-          <Image :src="item.snippet.thumbnails.medium.url" stretch="none" />
+          <Image col="0" :src="item.snippet.thumbnails.default.url" stretch="aspectFill" height="90"/>
           <Label col="1" :text="item.snippet.description" class="body" />
         </GridLayout>
       </v-template>
