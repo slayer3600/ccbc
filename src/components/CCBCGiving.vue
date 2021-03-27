@@ -1,6 +1,8 @@
 <template>
   <Page>
-    <ActionBar class="actionBar" title="Giving" />
+    <ActionBar class="actionBar" title="Giving">
+      <NavigationButton text="Back" />
+    </ActionBar>
     <WebView
       src="https://christcommunitypuyallup.churchcenter.com/giving"
       @loadStarted="onLoadedStarted"

@@ -1,6 +1,8 @@
 <template>
   <Page>
-    <ActionBar class="actionBar" title="Contact Us" />
+    <ActionBar class="actionBar" title="Contact Us" >
+      <NavigationButton text="Back" />
+    </ActionBar>
     <StackLayout marginLeft="10">
       <Label
         text="Mailing Address:"

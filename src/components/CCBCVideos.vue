@@ -1,7 +1,8 @@
 <template>
   <Page>
-    <ActionBar class="actionBar">
-      <GridLayout rows="*, *" columns="*, *">
+    <ActionBar class="actionBar" title="Sermons">
+      <NavigationButton text="Back" />
+      <!-- <GridLayout rows="*, *" columns="*, *">
         <Label text="Sermons" row="0" col="0" class="titleVideoText pull-left" />
         <Label :text="'Page ' + currentPage + ' of ' + numberOfPages" row="0" col="1" class="titleVideoText pull-right" />
         <Button
@@ -38,7 +39,7 @@
               fontAttributes="Bold"
             ></Span></FormattedString
         ></Button>
-      </GridLayout>
+      </GridLayout> -->
     </ActionBar>
     <ListView for="item in videoList.items" @itemTap="onItemTap">
       <v-template>

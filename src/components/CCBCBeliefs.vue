@@ -1,6 +1,8 @@
 <template>
   <Page>
-    <ActionBar class="actionBar" title="What We Believe" />
+    <ActionBar class="actionBar" title="What We Believe">
+      <NavigationButton text="Back" />
+    </ActionBar>
     <ScrollView orientation="vertical">
       <StackLayout marginLeft="10">
         <Image
