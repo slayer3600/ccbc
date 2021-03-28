@@ -2,49 +2,20 @@
   <Page>
     <ActionBar class="actionBar" title="Sermons">
       <NavigationButton text="Back" />
-      <!-- <GridLayout rows="*, *" columns="*, *">
-        <Label text="Sermons" row="0" col="0" class="titleVideoText pull-left" />
-        <Label :text="'Page ' + currentPage + ' of ' + numberOfPages" row="0" col="1" class="titleVideoText pull-right" />
-        <Button
-          v-if="videoList.prevPageToken"
-          @tap="onPreviousPage"
-          class="myPaginationButton pull-left m-b-2"
-          row="1"
-          col="0"
-        >
-          <FormattedString>
-            <Span
-              class="fas"
-              :text="'fa-caret-left' | fonticon"
-              fontAttributes="Bold"
-            ></Span>
-            <Span
-              text=" Prev Page"
-              fontAttributes="Bold"
-            ></Span></FormattedString
-        ></Button>
-        <Button
-          v-if="isNextPageAvailable"
-          text="Next Page"
-          @tap="onNextPage"
-          class="myPaginationButton pull-right m-b-2"
-          row="1"
-          col="1"
-        >
-          <FormattedString>
-            <Span text="Next Page " fontAttributes="Bold"></Span>
-            <Span
-              class="fas"
-              :text="'fa-caret-right' | fonticon"
-              fontAttributes="Bold"
-            ></Span></FormattedString
-        ></Button>
-      </GridLayout> -->
     </ActionBar>
-    <ListView for="item in videoList.items" @itemTap="onItemTap">
+    <ListView
+      for="item in videoList.items"
+      @itemTap="onItemTap"
+      @loadMoreItems="onLoadMoreItems"
+    >
       <v-template>
         <GridLayout columns="1/3*, 2/3*">
-          <Image col="0" :src="item.snippet.thumbnails.default.url" stretch="aspectFill" height="90"/>
+          <Image
+            col="0"
+            :src="item.snippet.thumbnails.default.url"
+            stretch="aspectFill"
+            height="90"
+          />
           <Label col="1" :text="item.snippet.description" class="body" />
         </GridLayout>
       </v-template>
@@ -65,6 +36,7 @@ export default {
       resultsPerPage: '25',
       videoList: [],
       currentPage: 1,
+      nextPageToken: null,
     };
   },
   methods: {
@@ -73,19 +45,26 @@ export default {
       let YouTubeUrl = `https://www.youtube.com/watch?v=${args.item.id.videoId}`;
       Utils.openUrl(YouTubeUrl);
     },
+    onLoadMoreItems() {
+      if (this.isNextPageAvailable) {
+        console.log('Loading more items...');
+        this.onNextPage();
+      }
+    },
     async onNextPage() {
-      console.log(this.videoList.nextPageToken);
-      let APIURL = `${this.youTubeAPIURL}&pageToken=${this.videoList.nextPageToken}`;
+      console.log("Next page token: " + this.nextPageToken);
+      let APIURL = `${this.youTubeAPIURL}&pageToken=${this.nextPageToken}`;
       const response = await axios.get(APIURL);
-      this.videoList = response.data;
-      this.currentPage++
+      this.nextPageToken = response.data.nextPageToken;
+      this.videoList.items.push(...response.data.items);
+      this.currentPage++;
     },
     async onPreviousPage() {
       console.log(this.videoList.nextPageToken);
       let APIURL = `${this.youTubeAPIURL}&pageToken=${this.videoList.prevPageToken}`;
       const response = await axios.get(APIURL);
       this.videoList = response.data;
-      this.currentPage--
+      this.currentPage--;
     },
   },
   computed: {
@@ -93,29 +72,24 @@ export default {
       return `${this.youTubeAPIBaseUrl}search?part=snippet&channelId=${this.youTubeChannelId}&key=${this.youTubeAPIKey}&maxResults=${this.resultsPerPage}&order=date`;
     },
     isNextPageAvailable() {
-      if (this.videoList.pageInfo) {
-        if (this.videoList.pageInfo.resultsPerPage >= this.resultsPerPage) {
-          return true;
-        } else {
-          return false;
-        }
-      } else {
-        return false;
-      }
+      return this.nextPageToken ? true: false
     },
     numberOfPages() {
-      if (this.videoList.pageInfo){
-        return Math.ceil(this.videoList.pageInfo.totalResults / this.resultsPerPage)
+      if (this.videoList.pageInfo) {
+        return Math.ceil(
+          this.videoList.pageInfo.totalResults / this.resultsPerPage
+        );
       } else {
-        return -1
+        return -1;
       }
-    }
+    },
   },
   async mounted() {
     try {
       const response = await axios.get(this.youTubeAPIURL);
       console.dir(response.data);
       this.videoList = response.data;
+      this.nextPageToken = this.videoList.nextPageToken;
     } catch (error) {
       console.error(error);
     }
