@@ -14,8 +14,9 @@
 }
 
 .titlePageText {
-  font-size: 20;
+  font-size: 24;
   color: white;
+  font-weight: bold;
 }
 
 .titleVideoText {

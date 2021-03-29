@@ -9,7 +9,7 @@
           class="img-rounded m-b-20"
         ></Image>
         <Label
-          class="titlePageText text-center"
+          class="titlePageText text-center m-t-20"
           :text="missionStatement"
           textWrap="true"
           fontStyle="italic"
