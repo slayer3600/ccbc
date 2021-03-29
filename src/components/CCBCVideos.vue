@@ -52,7 +52,7 @@ export default {
       }
     },
     async onNextPage() {
-      console.log("Next page token: " + this.nextPageToken);
+      console.log('Next page token: ' + this.nextPageToken);
       let APIURL = `${this.youTubeAPIURL}&pageToken=${this.nextPageToken}`;
       const response = await axios.get(APIURL);
       this.nextPageToken = response.data.nextPageToken;
@@ -72,7 +72,7 @@ export default {
       return `${this.youTubeAPIBaseUrl}search?part=snippet&channelId=${this.youTubeChannelId}&key=${this.youTubeAPIKey}&maxResults=${this.resultsPerPage}&order=date`;
     },
     isNextPageAvailable() {
-      return this.nextPageToken ? true: false
+      return this.nextPageToken ? true : false;
     },
     numberOfPages() {
       if (this.videoList.pageInfo) {
