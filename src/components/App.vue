@@ -131,7 +131,7 @@ export default {
       var opts = {
         url: 'https://christcommunitypuyallup.churchcenter.com/giving',
         toolbarColor: '#1ecabb',
-        // toolbarControlsColor: '#333', // iOS only
+        toolbarControlsColor: '#ffffff', // iOS only
         showTitle: false, // Android only
     };
 
