@@ -79,7 +79,7 @@
                 fontAttributes="Bold"
               ></Span>
             </FormattedString>
-          </Button>          
+          </Button>
         </GridLayout>
       </StackLayout>
     </ScrollView>
@@ -91,7 +91,9 @@ import CCBCBeliefs from '@/components/CCBCBeliefs';
 import CCBCVideos from '@/components/CCBCVideos';
 import CCBCContactUs from '@/components/CCBCContactUs';
 import CCBCGiving from '@/components/CCBCGiving';
-import { Utils } from '@nativescript/core';
+import { Utils, isIOS } from '@nativescript/core';
+import { openAdvancedUrl } from 'nativescript-advanced-webview';
+
 export default {
   data() {
     return {
@@ -121,7 +123,25 @@ export default {
       this.$navigateTo(CCBCContactUs);
     },
     givingClick() {
-      this.$navigateTo(CCBCGiving);
+
+      //App was rejetced by Apple because charitable donations cannot be embedded in app
+      //Their acceptable work around was to use a "SFSafariViewController" which the following
+      //'nativescript-advanced-webview' component implements
+
+      var opts = {
+        url: 'https://christcommunitypuyallup.churchcenter.com/giving',
+        toolbarColor: '#1ecabb',
+        // toolbarControlsColor: '#333', // iOS only
+        showTitle: false, // Android only
+    };
+
+    if (isIOS) {
+      openAdvancedUrl(opts);
+    } else {
+      this.$navigateTo(CCBCGiving)
+    }
+      
+
     },
     facebookClick() {
       Utils.openUrl(this.facebookURL);

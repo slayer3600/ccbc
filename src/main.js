@@ -3,6 +3,10 @@ import App from './components/App'
 import VueDevtools from 'nativescript-vue-devtools'
 var firebase = require("@nativescript/firebase").firebase;
 import { TNSFontIcon, fonticon } from 'nativescript-fonticon'
+import { init } from 'nativescript-advanced-webview';
+
+init();
+
 
 // Load TNSFonticon
  TNSFontIcon.debug = true
