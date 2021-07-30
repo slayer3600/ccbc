@@ -28,3 +28,5 @@ https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCdpdRSm
 https://developers.google.com/youtube/
 
 https://bradmartin.net/2016/01/25/videos-in-a-nativescript-app/
+
+https://stackoverflow.com/questions/63607158/xcode-12-building-for-ios-simulator-but-linking-in-object-file-built-for-ios

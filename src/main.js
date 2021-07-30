@@ -1,7 +1,7 @@
 import Vue from 'nativescript-vue'
 import App from './components/App'
-import VueDevtools from 'nativescript-vue-devtools'
-var firebase = require("@nativescript/firebase").firebase;
+// import VueDevtools from 'nativescript-vue-devtools'
+// var firebase = require("@nativescript/firebase").firebase;
 import { TNSFontIcon, fonticon } from 'nativescript-fonticon'
 import { init } from 'nativescript-advanced-webview';
 
@@ -19,36 +19,36 @@ init();
  TNSFontIcon.loadCss()
  Vue.filter('fonticon', fonticon)
 
-if(TNS_ENV !== 'production') {
-  Vue.use(VueDevtools)
-}
+// if(TNS_ENV !== 'production') {
+//   Vue.use(VueDevtools)
+// }
 
-firebase.init({
-  // Optionally pass in properties for database, authentication and cloud messaging,
-  // see their respective docs.
+// firebase.init({
+//   // Optionally pass in properties for database, authentication and cloud messaging,
+//   // see their respective docs.
 
-  onMessageReceivedCallback: function(message) {
-    console.log("Title: " + message.title);
-    console.log("Body: " + message.body);
-    // if your server passed a custom property called 'foo', then do this:
-    console.log("Value of 'foo': " + message.data.foo);
-  },
+//   onMessageReceivedCallback: function(message) {
+//     console.log("Title: " + message.title);
+//     console.log("Body: " + message.body);
+//     // if your server passed a custom property called 'foo', then do this:
+//     console.log("Value of 'foo': " + message.data.foo);
+//   },
 
-  showNotifications: true,
-  showNotificationsWhenInForeground: true
+//   showNotifications: true,
+//   showNotificationsWhenInForeground: true
 
-}).then(
-    function () {
-      console.log("firebase.init done");
-    },
-    function (error) {
-      console.log("firebase.init error: " + error);
-    }
-);
+// }).then(
+//     function () {
+//       console.log("firebase.init done");
+//     },
+//     function (error) {
+//       console.log("firebase.init error: " + error);
+//     }
+// );
 
 
 // Prints Vue logs when --env.production is *NOT* set while building
-Vue.config.silent = (TNS_ENV === 'production')
+// Vue.config.silent = (TNS_ENV === 'production')
 
 
 new Vue({

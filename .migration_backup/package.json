@@ -1,6 +1,6 @@
 {
   "name": "ccbc",
-  "main": "./src/main.js",
+  "main": "main.js",
   "version": "1.0.0",
   "description": "A native application built with NativeScript-Vue",
   "author": "Jeremy Huntsman <slayer3600@gmail.com>",
@@ -14,7 +14,8 @@
     "build": "tns build android --env.production"
   },
   "dependencies": {
-    "@nativescript/core": "~8.0.0",
+    "@nativescript/core": "^7.0.3",
+    "@nativescript/firebase": "^11.1.3",
     "@nativescript/theme": "^2.3.3",
     "@vue/devtools": "^5.3.3",
     "axios": "^0.21.1",
@@ -28,9 +29,9 @@
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
-    "@nativescript/android": "8.0.0",
-    "@nativescript/ios": "8.0.0",
-    "@nativescript/webpack": "~5.0.0-beta.0",
+    "@nativescript/android": "7.0.1",
+    "@nativescript/ios": "7.2.0",
+    "@nativescript/webpack": "^3.0.4",
     "babel-loader": "^8.1.0",
     "nativescript-vue-template-compiler": "^2.8.1",
     "nativescript-worker-loader": "~0.12.1",

@@ -5,7 +5,7 @@
       <StackLayout marginLeft="10">
         <Image
           src="~/assets/images/ccbc-logo.png"
-          width="150"
+          width="125"
           class="img-rounded m-b-20"
         ></Image>
         <Label
@@ -20,6 +20,7 @@
           @tap="whatWeBelieveClick()"
         ></Button>
         <Button text="Sermons" class="myButton" @tap="sermonsClick()"></Button>
+        <Button text="Life Groups" class="myButton" @tap="lifeGroupsClick()"></Button>
         <Button
           col="0"
           text="Giving"
@@ -43,7 +44,7 @@
           class="titlePageText text-center"
         />
 
-        <GridLayout columns="1/4*, 1/4*, 1/4*, 1/4*">
+        <GridLayout columns="1/5*, 1/5*, 1/5*, 1/5*, 1/5*">
           <Button col="0" class="myButton" @tap="facebookClick()">
             <FormattedString>
               <Span
@@ -80,6 +81,15 @@
               ></Span>
             </FormattedString>
           </Button>
+          <Button col="4" class="myButton" @tap="calendarClick()">
+            <FormattedString>
+              <Span
+                class="fas"
+                :text="'fa-calendar' | fonticon"
+                fontAttributes="Bold"
+              ></Span>
+            </FormattedString>
+          </Button>
         </GridLayout>
       </StackLayout>
     </ScrollView>
@@ -91,6 +101,8 @@ import CCBCBeliefs from '@/components/CCBCBeliefs';
 import CCBCVideos from '@/components/CCBCVideos';
 import CCBCContactUs from '@/components/CCBCContactUs';
 import CCBCGiving from '@/components/CCBCGiving';
+import CCBCLifeGroups from '@/components/CCBCLifeGroups';
+import CCBCCalendar from '@/components/CCBCCalendar';
 import { Utils, isIOS } from '@nativescript/core';
 import { openAdvancedUrl } from 'nativescript-advanced-webview';
 
@@ -152,6 +164,12 @@ export default {
     instagramClick() {
       Utils.openUrl(this.instagramURL);
     },
+    lifeGroupsClick() {
+      this.$navigateTo(CCBCLifeGroups);
+    },
+    calendarClick() {
+      this.$navigateTo(CCBCCalendar);
+    }
   },
 };
 </script>
