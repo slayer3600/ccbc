@@ -6,7 +6,7 @@
         <Image
           src="~/assets/images/ccbc-logo.png"
           width="125"
-          class="img-rounded m-b-20"
+          class="img-rounded"
         ></Image>
         <Label
           class="titlePageText text-center"

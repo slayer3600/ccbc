@@ -12,7 +12,7 @@ npm install
 tns preview
 
 # Build, watch for changes and run the application
-tns run
+tns run <platform>
 
 # Build, watch for changes and debug the application
 tns debug <platform>
